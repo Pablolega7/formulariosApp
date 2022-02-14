@@ -1,0 +1,96 @@
+
+<h2>Validaciones Reactivas</h2>
+<hr>
+
+
+
+<div class="row">
+    <div class="col">
+        <form autocomplete="off" [formGroup]="miFormulario" (submit)="submitFormulario()">
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Nombre del Usuario"
+                           formControlName="nombre">
+
+                           <span class="form-text text-danger"
+                           *ngIf="campoNoValido('nombre')">
+                               Debe de ser de Formato Nombre y Apellido
+                           </span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email"
+                           class="form-control"
+                           placeholder="Email del Usuario"
+                           formControlName="email">
+
+                           <span class="form-text text-danger"
+                           *ngIf="emailRequired()">
+                               El Correo es Obligatorio
+                           </span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">UserName</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Username del Usuario"
+                           formControlName="userName">
+
+                           <span class="form-text text-danger"
+                           *ngIf="campoNoValido('userName')">
+                               El Username es Obligatorio
+                           </span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-9">
+                    <input type="password"
+                           class="form-control"
+                           placeholder="Password del Usuario"
+                           formControlName="password">
+
+                           <span class="form-text text-danger"
+                           *ngIf="campoNoValido('password')">
+                               El Password es Obligatorio
+                           </span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Password 2</label>
+                <div class="col-sm-9">
+                    <input type="password"
+                           class="form-control"
+                           placeholder="Confirmar Contraseña"
+                           formControlName="password2">
+
+                           <span class="form-text text-danger"
+                           *ngIf="campoNoValido('password2')">
+                               Las Contraseñas Deben de ser Iguales
+                           </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary float-end"
+                    type="submit">
+                        Crear
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
